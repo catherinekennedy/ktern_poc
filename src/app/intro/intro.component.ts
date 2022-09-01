@@ -10,8 +10,9 @@ import "intro.js/introjs.css";
 export class IntroComponent implements OnInit {
   tour1 = introJs();
   tour2 = introJs();
-  percent: number = 70;
-  isVisible = true;
+  percent: number;
+  isVisible = false;
+  deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30;
 
   constructor() {}
 
@@ -115,6 +116,10 @@ export class IntroComponent implements OnInit {
       // })
       .oncomplete(() => {
         this.arrTour.t1 = true;
+        var tourlength = Object.keys(this.arrTour).length;
+        var vals = Object.values(this.arrTour);
+        var num = vals.filter(this.checktrue).length;
+        this.percent = (num / tourlength) * 100;
         // this.jsonData = JSON.stringify(this.arrTour);
         // localStorage.setItem("tour", this.jsonData);
         // console.log(localStorage.getItem("tour"));
@@ -177,6 +182,10 @@ export class IntroComponent implements OnInit {
       .oncomplete(() => {
         alert("tour2 finishd");
         this.arrTour.t2 = true;
+        var tourlength = Object.keys(this.arrTour).length;
+        var vals = Object.values(this.arrTour);
+        var num = vals.filter(this.checktrue).length;
+        this.percent = (num / tourlength) * 100;
 
         console.log(this.arrTour);
         // this.jsonData = JSON.stringify(this.arrTour);

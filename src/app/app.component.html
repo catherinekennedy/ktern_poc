@@ -30,6 +30,12 @@
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/intro">intro.js</a>
           </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/login">login</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/home" class="home">home</a>
+          </li>
         </ul>
       </li>
       <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
@@ -56,7 +62,48 @@
     <nz-content>
       <div class="inner-content">
         <router-outlet></router-outlet>
+
+        <!-- <div nz-row>
+          <div nz-col nzSpan="12" > -->
+        <nz-collapse>
+          <nz-collapse-panel
+            nzHeader="App Tour"
+            nzActive="true"
+            nzDisabled="false"
+            class="sidenav"
+          >
+            <nz-progress
+              [nzPercent]="percent.percent"
+              nzStatus="active"
+            ></nz-progress>
+            <br />
+            <br />
+            <p>
+              Tour 1
+              <span
+                class="iconTick"
+                nz-icon
+                [nzType]="appTour?.t1 ? 'check-circle' : 'close-circle'"
+                [nzTheme]="'twotone'"
+                [nzTwotoneColor]="appTour?.t1 ? 'green' : 'red'"
+              ></span>
+            </p>
+            <p>
+              Tour 2
+              <span
+                class="iconTick"
+                nz-icon
+                [nzType]="appTour?.t2 ? 'check-circle' : 'close-circle'"
+                [nzTheme]="'twotone'"
+                [nzTwotoneColor]="appTour?.t2 ? 'green' : 'red'"
+              ></span>
+            </p>
+          </nz-collapse-panel>
+        </nz-collapse>
+        <!-- </div>
+        </div> -->
       </div>
     </nz-content>
+    <nz-footer> </nz-footer>
   </nz-layout>
 </nz-layout>

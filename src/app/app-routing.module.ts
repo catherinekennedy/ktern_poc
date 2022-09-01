@@ -3,12 +3,16 @@ import { Routes, RouterModule } from "@angular/router";
 import { SampleComponent } from "./sample/sample.component";
 import { IntroComponent } from "./intro/intro.component";
 import { ShepsherdComponent } from "./shepsherd/shepsherd.component";
+import { LoginComponent } from "./intro/login/login.component";
+import { HomeComponent } from "./intro/home/home.component";
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "/welcome" },
   { path: "sample", component: SampleComponent },
   { path: "intro", component: IntroComponent },
   { path: "shepsherd", component: ShepsherdComponent },
+  { path: "login", component: LoginComponent },
+  { path: "home", component: HomeComponent },
   {
     path: "welcome",
     loadChildren: () =>
