@@ -38,6 +38,37 @@
 <br /><br />
 <button nz-button nzType="primary" (click)="showHint()">Show Hints</button
 ><br /><br />
+
+<nz-affix [nzOffsetTop]="offsetTop">
+  <div nz-row>
+    <div nz-col nzSpan="12" nzOffset="12">
+      <nz-progress [nzPercent]="percent" nzStatus="active"></nz-progress>
+      <br />
+      <br />
+      <p>
+        Tour 1
+        <span
+          class="iconTick"
+          nz-icon
+          [nzType]="arrTour?.t1 ? 'check-circle' : 'close-circle'"
+          [nzTheme]="'twotone'"
+          [nzTwotoneColor]="arrTour?.t1 ? 'green' : 'red'"
+        ></span>
+      </p>
+      <p>
+        Tour 2
+        <span
+          class="iconTick"
+          nz-icon
+          [nzType]="arrTour?.t2 ? 'check-circle' : 'close-circle'"
+          [nzTheme]="'twotone'"
+          [nzTwotoneColor]="arrTour?.t2 ? 'green' : 'red'"
+        ></span>
+      </p>
+    </div>
+  </div>
+</nz-affix>
+
 <button nz-button [nzType]="'primary'" (click)="showModal()">
   <span>Tour List</span>
 </button>
