@@ -24,12 +24,12 @@
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/welcome">Welcome</a>
           </li>
-          <li nz-menu-item nzMatchRouter>
+          <!-- <li nz-menu-item nzMatchRouter>
             <a routerLink="/shepsherd">shepsherd</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/intro">intro.js</a>
-          </li>
+          </li> -->
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/login">login</a>
           </li>
@@ -38,13 +38,13 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+      <!-- <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a>Basic Form</a>
           </li>
         </ul>
-      </li>
+      </li> -->
     </ul>
   </nz-sider>
   <nz-layout>
@@ -78,18 +78,53 @@
             ></nz-progress>
             <br />
             <br />
-            <p>
-              Tour 1
+            <nz-collapse>
+              <nz-collapse-panel
+                *ngFor="let appName of apptourname; let i = index"
+                nzHeader="{{ appName }} "
+                nzActive="false"
+                [nzExtra]="extraTpl"
+              >
+                <button
+                  nz-button
+                  nzType="text"
+                  *ngFor="let name of tours[i]"
+                  (click)="call(name.step, name.title, appName)"
+                  nzBlock
+                >
+                  {{ name.title }}
+                </button>
+
+                <ng-template #extraTpl>
+                  <!-- You can use stopPropagation if you don't want the panel to toggle -->
+                  <span
+                    class="iconTick"
+                    (click)="tour(appName)"
+                    nz-icon
+                    [nzType]="apptourval[i] ? 'check-circle' : 'close-circle'"
+                    [nzTheme]="'twotone'"
+                    [nzTwotoneColor]="apptourval[i] ? 'green' : 'red'"
+                  >
+                  </span>
+                </ng-template>
+              </nz-collapse-panel>
+            </nz-collapse>
+
+            <!-- <p *ngFor="let appName of apptourname; let i = index">
+              <span>{{ appName }} {{ apptourval[i] }}</span>
+
               <span
                 class="iconTick"
                 nz-icon
-                [nzType]="appTour?.t1 ? 'check-circle' : 'close-circle'"
+                [nzType]="apptourval[i] ? 'check-circle' : 'close-circle'"
                 [nzTheme]="'twotone'"
-                [nzTwotoneColor]="appTour?.t1 ? 'green' : 'red'"
+                [nzTwotoneColor]="apptourval[i] ? 'green' : 'red'"
               ></span>
-            </p>
-            <p>
-              Tour 2
+            </p> -->
+            <!-- <p>
+              <span nz-typography [nzType]="appTour?.t2 ? 'success' : 'danger'"
+                >Tour 2</span
+              >
               <span
                 class="iconTick"
                 nz-icon
@@ -97,7 +132,7 @@
                 [nzTheme]="'twotone'"
                 [nzTwotoneColor]="appTour?.t2 ? 'green' : 'red'"
               ></span>
-            </p>
+            </p> -->
           </nz-collapse-panel>
         </nz-collapse>
         <!-- </div>

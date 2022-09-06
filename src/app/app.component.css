@@ -86,8 +86,16 @@ nz-content {
   z-index: 100;
   /* top: 80%; */
   bottom: 0;
-  right: 0;
+  left: 0;
   background-color: white;
   overflow-x: hidden;
   padding: 20px;
+}
+
+[nzType="success"] {
+  color: green;
+  background-color: greenyellow;
+}
+[nz-button] {
+  margin-bottom: 1px;
 }

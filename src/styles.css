@@ -9,14 +9,19 @@
 @import "~ng-zorro-antd/ng-zorro-antd.min.css";
 
 .customTooltip .introjs-tooltip-title {
-  color: #0a41c9;
-  background-color: lightblue;
+  color: #c12508;
+  background-color: #f6c38b;
   text-align: center;
 }
 
 .iconTick {
   float: right;
   font-size: 20px;
+}
+
+.customTooltip .introjs-tooltipbuttons a {
+  color: #c12508;
+  background-color: #f6c38b;
 }
 
 .introjs-helperLayer:after {

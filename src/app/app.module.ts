@@ -16,6 +16,7 @@ import { SampleComponent } from "./sample/sample.component";
 import { IconsProviderModule } from "./icons-provider.module";
 import { LoginComponent } from "./intro/login/login.component";
 import { HomeComponent } from "./intro/home/home.component";
+import * as $ from "jquery";
 
 registerLocaleData(en);
 
